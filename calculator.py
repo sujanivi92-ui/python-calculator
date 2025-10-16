@@ -1,38 +1,32 @@
+# ==============================================
+# Simple Calculator
+# Concepts: input(), variables, datatypes, operators, f-string, if-else
+# ==============================================
 
-# Simple Bill Calculator
+# Get user input
+num1 = float(input("Enter first number: "))
+operator = input("Enter operator (+, -, *, /, %): ")
+num2 = float(input("Enter second number: "))
 
-# Input: item details
-item_name = input("Enter the item name: ")
-price = float(input("Enter the price of one item: ₹"))
-quantity = int(input("Enter the quantity: "))
+# Perform calculation based on operator
+if operator == '+':
+    result = num1 + num2
+elif operator == '-':
+    result = num1 - num2
+elif operator == '*':
+    result = num1 * num2
+elif operator == '/':
+    # Handle division by zero
+    if num2 == 0:
+        result = "Error! Division by zero."
+    else:
+        result = num1 / num2
+elif operator == '%':
+    result = num1 % num2
+else:
+    result = "Invalid operator!"
 
-# Constants
-TAX_RATE = 0.05  # 5% tax
-
-# Calculations
-subtotal = price * quantity
-tax = subtotal * TAX_RATE
-total = subtotal + tax
-
-# Output: formatted bill
-print("\n**")
-print("🧾 SIMPLE BILL CALCULATOR")
-print("")
-print(f"Item Name : {item_name}")
-print(f"Price     : ₹{price:.2f}")
-print(f"Quantity  : {quantity}")
-print(f"Subtotal  : ₹{subtotal:.2f}")
-print(f"Tax (5%)  : ₹{tax:.2f}")
-print("------------------------------")
-print(f"Total Bill: ₹{total:.2f}")
-print("")
-print("✅ Thank you for shopping with us!")
-
-
-
-
-
-
-
-
-
+# Display result
+print("\n========== CALCULATOR RESULT ==========")
+print(f"{num1} {operator} {num2} = {result}")
+print("=======================================")
